@@ -22,12 +22,38 @@
 
     .message {
         max-width: 440px;
+//        animation: showUp 1s ease-in-out 0s normal none;
+        overflow: hidden;
+
+        &:nth-child(1) {
+            animation: showUp 1s ease-in-out 0s normal none;
+        }
+
+        @keyframes showUp {
+            0% { margin-bottom: -200px; filter: opacity(0); transform: scale(0.6);}
+            50% { margin-bottom: 0px; filter: opacity(1); transform: scale(1.1);}
+        }
 
         &:nth-child(2){
             margin-left: 80px;
+            animation: secondChildOffsetEasing 1s ease-in-out 0s;
         }
 
-        mesageContent {
+        @keyframes secondChildOffsetEasing {
+            0% { margin-left: 0;}
+        }
+
+        &:nth-child(4){
+            margin-left: 80px;
+            animation: fadeIntoNothingness 1s ease-in-out 0s forwards;
+        }
+
+        @keyframes fadeIntoNothingness {
+            0% { margin-left: 0px; filter: opacity(1); }
+            100% { margin-left: -100px; filter: opacity(0); }
+        }
+
+        .messageContent {
             font-size: 20px;
             line-height: 28px;
         }
