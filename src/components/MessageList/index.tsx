@@ -32,13 +32,13 @@ export function MessageList() {
                     messagesQueue[0],
                     prevState[0],
                     prevState[1],
+                    prevState[2],
                 ].filter(Boolean))
-                console.log(messages);
 
                 messagesQueue.shift()
             }
         }, 3000)
-    })
+    }, [])
 
     useEffect(() => {
         api.get<Message[]>('messages/last3').then(response => {
